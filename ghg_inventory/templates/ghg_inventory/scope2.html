@@ -1,0 +1,88 @@
+{% extends 'ghg_inventory/base.html' %}
+
+
+{% block content %}
+
+
+    {% comment %} The Scope Tab Selection   {% endcomment %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link " id="tab1"  href="{%url 'scope1'%}">Scope 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="tab2"  href="{%url 'scope2'%}">Scope 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="tab3" href="{%url 'scope3'%}">Scope 3</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="{%url 'dashboard'%}">Dashboard</a>
+        </li>
+    </ul>
+
+
+    <br>
+
+
+    <div class="tab-content">
+
+        {% comment %} Scope 1 {% endcomment %}
+        <div id="content1" class="tab-pane fade show active">
+            <h4> Purchased Electricity </h4>
+            <p> Electricity Consumption in kWh </p>
+
+
+            <form  method="POST">
+                {% csrf_token %}
+                
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th> Year of Report</th>
+                            <th> Electricity Consumption (kWh) </th>
+                            <th> Date of input </th>
+                            <th> </th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> {{ electricity.inventory_year}} </td>
+                            <td> {{ electricity.consumption }} </td>
+                            <td> {{ electricity.date }} </td>
+                            <td> <button type="submit" class="btn btn-primary"> Save </button> </td>
+                            <td></td>
+                        </tr>
+
+                        {% for item in electricities %}
+                            <tr>
+                                <td> {{ item.inventory_year }} </td>
+                                <td> {{ item.consumption}} </td>
+                                <td> {{ item.date}} </td>
+                                <td><a href="{% url 'electricity_delete' item.id %}">🗑️</a></td>
+                                <td><a href="{% url 'electricity_update' item.id %}">✏️</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                
+
+            </form>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+{% endblock %}
+
+
+    
+
+    

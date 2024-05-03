@@ -1,0 +1,32 @@
+{% extends 'ghg_inventory/base.html' %}
+{% load plotly_dash %}
+{% load static %}
+
+
+{% block content %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link " href="{%url 'scope1'%}">Scope 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"   href="{%url 'scope2'%}">Scope 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'scope3'%}">Scope 3</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link active" href="{%url 'dashboard'%}">Dashboard</a>
+        </li>
+    </ul>
+
+    <br>
+    <h4> Dashboard </h4>
+
+    <div class="custom-diy"> 
+        {% plotly_app name="dashboard"  %}
+    </div>
+
+
+{% endblock %}
+

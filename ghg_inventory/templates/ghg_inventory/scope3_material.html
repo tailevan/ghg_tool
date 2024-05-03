@@ -1,0 +1,115 @@
+{% extends 'ghg_inventory/base_scope3.html' %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-2">
+            <!-- Left div with 1/10 width -->
+
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'commute' %}">Commute</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'water' %}">Water Supply</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'wastewater' %}">Waste Water</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link active "  href="{% url 'material' %}">Material Use</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'disposal' %}">Waste Disposal</a>
+
+                </li>         
+                
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'travel' %}">Business Travel</a>
+
+                </li>   
+    
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'flight' %}"> Flight </a>
+
+                </li>   
+    
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'accommodation' %}">Accommodation</a>
+
+                </li>   
+
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'freighting' %}">Freighting</a>
+
+                </li>   
+
+
+            </ul>
+
+        </div>
+        <div class="col">
+            <!-- Right div -->
+            <h4> Material Use</h4> 
+            <p> The Material Use</p>
+
+            <form method="post">
+                {% csrf_token %}
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Year of Report</th>
+                        <th>Material Type </th>
+                        <th>Quantity in kg except bottle water in m3</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td> {{ material.inventory_year }} </td>
+                        <td>{{ material.type}}</td>
+                        <td>{{ material.quantity}}</td>
+                        <td><button type="submit" class="btn btn-primary">Save</button></td>
+                        <td></td>
+                    </tr>
+                        {% for item in materials%}
+                            <tr>
+                                <td>{{ item.inventory_year }}</td>
+                                <td>{{ item.type}}</td>
+                                <td>{{ item.quantity}}</td>
+                                {% comment %} delete button {% endcomment %}
+                                <td><a href="{% url 'material_delete' item.id %}">🗑️</a></td>
+                                <td><a href="{% url 'material_update' item.id %}">✏️</a></td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+
+        
+
+
+
+
+    
+    
+
+    

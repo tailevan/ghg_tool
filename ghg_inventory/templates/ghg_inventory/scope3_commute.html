@@ -1,0 +1,119 @@
+{% extends 'ghg_inventory/base_scope3.html' %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-2">
+            <!-- Left div with 1/10 width -->
+
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'commute' %}">Commute</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'water' %}">Water Supply</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'wastewater' %}">Waste Water</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'material' %}">Material Use</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'disposal' %}">Waste Disposal</a>
+
+                </li>         
+                
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'travel' %}">Business Travel</a>
+
+                </li>   
+    
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'flight' %}"> Flight </a>
+
+                </li>   
+    
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'accommodation' %}">Accommodation</a>
+
+                </li>   
+
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'freighting' %}">Freighting</a>
+
+                </li>   
+
+
+            </ul>
+
+        </div>
+        <div class="col">
+            <!-- Right div -->
+            <h4> Employee Commuting </h4> 
+            <p> This section is for the employee commuting data of total distance travel for a year in km unit by Gasoline Motorbike only </p>
+            <br>
+
+            <form method="post">
+                {% csrf_token %}
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Year of Report</th>
+                        <th>Employee</th>
+                        <th>Distance (km)</th>
+                        <th>Working days at office per year</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td> {{ commute.inventory_year }} </td>
+                        <td>{{ commute.employee}}</td>
+                        <td>{{ commute.distance}}</td>
+                        <td>{{ commute.workdays}}</td>
+                        <td><button type="submit" class="btn btn-primary">Save</button></td>
+                        <td></td>
+                    </tr>
+                        {% for item in commutes%}
+                            <tr>
+                                <td>{{ item.inventory_year }}</td>
+                                <td>{{ item.employee}}</td>
+                                <td>{{ item.distance}}</td>
+                                <td>{{ item.workdays}}</td>
+                                {% comment %} delete button {% endcomment %}
+                                <td><a href="{% url 'commute_delete' item.id %}">🗑️</a></td>
+                                <td><a href="{% url 'commute_update' item.id %}">✏️</a></td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+
+        
+
+
+
+
+    
+    
+
+    

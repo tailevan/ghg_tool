@@ -1,0 +1,86 @@
+{% extends 'ghg_inventory/base.html' %}
+
+
+{% block content %}
+
+
+    {% comment %} The Scope Tab Selection   {% endcomment %}
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="{%url 'scope1'%}">Scope 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"   href="{%url 'scope2'%}">Scope 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'scope3'%}">Scope 3</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'dashboard'%}">Dashboard</a>
+        </li>
+    </ul>
+
+    <br>
+
+
+    <div class="tab-content">
+
+    {% comment %} Scope 1 {% endcomment %}
+        <div id="content1" class="tab-pane fade show active">
+            <h4> Refrigerants and Fugitives</h4>
+            <p> The refrigerants which have been newly installed, replaced in this year of report </p>
+
+
+
+
+        <form method="POST">
+            {% csrf_token %}
+
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Year of Report</th>
+                        <th>Refrigerant Used</th>
+                        <th>Number of machine</th>
+                        <th>Capacity of each machine (kg)</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{ refrigerant.inventory_year }} </td>
+                        <td>{{ refrigerant.type }}</td>
+                        <td>{{ refrigerant.quantity }}</td>
+                        <td>{{ refrigerant.capacity }}</td>
+                        <td><button type="submit" class="btn btn-primary">Save</button></td>
+                        <td></td>
+                    </tr>
+                    {% for item in refrigerants %}
+                        <tr>
+                            <td>{{ item.inventory_year }}</td>
+                            <td>{{ item.type }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.capacity }}</td>
+                            {% comment %} delete button {% endcomment %}
+                            <td><a href="{% url 'refrigerant_delete' item.id %}">🗑️</a></td>
+                            <td><a href="{% url 'refrigerant_update' item.id %}">✏️</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+ 
+
+{% endblock %}
+
+
+
+    
+    
+
+    

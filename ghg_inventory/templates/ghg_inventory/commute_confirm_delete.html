@@ -1,0 +1,12 @@
+{% extends 'ghg_inventory/base.html' %}
+
+{% block content %}
+    <h2>Delete Commuting Data</h2>
+    <form method="POST">
+    {% csrf_token %}
+    Are you sure you want to delete "{{ object }}"?
+    <button type="submit" class="btn btn-primary" >Yes, delete</button>
+    </form>
+
+    <a type="button" class="btn btn-secondary" href="{%url 'commute'%}"> Back </a>
+{% endblock %}

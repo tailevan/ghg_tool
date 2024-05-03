@@ -1,0 +1,14 @@
+{% extends 'ghg_inventory/base.html' %}
+
+{% block content %}
+    <h2>Update Disposal Data</h2>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+    <br>
+    
+    <a type="button" class="btn btn-secondary" href="{%url 'disposal'%}"> Back </a>
+{% endblock %}

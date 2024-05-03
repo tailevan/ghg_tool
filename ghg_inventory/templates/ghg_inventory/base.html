@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/custom.css' %}">
+    </head>
+
+    <body style="margin: 30px; height: 100vh;">
+        <div class="row">
+            <div class="col">
+                <h1>GHG Inventory</h1>
+            </div>
+            <div class="col">
+                <img src="{% static 'images/wss_logo.png' %}" alt="PZE Logo" style="width: 200px; height: auto;">
+                <img src="{% static 'images/pze_logo.png' %}" alt="PZE Logo" style="width: 100px; height: auto;">
+            </div>
+
+        </div>
+        <div>
+        {% block content %}
+        {% endblock %} 
+        </div>
+
+        {% comment %} <footer class="footer">
+            <p class="text-center text-muted"> © 2024 WSS & PZE - Internal Carbon Tool V.0.1</p>
+        </footer> {% endcomment %}
+    </body>
+
+
+</html>
+
+
+    
+    
+
+    

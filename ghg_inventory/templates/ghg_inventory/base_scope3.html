@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body style="margin: 30px;">
+        <div class="row">
+            <div class="col">
+                <h1>GHG Inventory</h1>
+            </div>
+            <div class="col">
+                <img src="{% static 'images/wss_logo.png' %}" alt="PZE Logo" style="width: 200px; height: auto;">
+                <img src="{% static 'images/pze_logo.png' %}" alt="PZE Logo" style="width: 150px; height: auto;">
+            </div>
+
+        </div>
+            <ul class="nav nav-tabs">
+                
+                <li class="nav-item">
+                <a class="nav-link " id="tab1"  href="{%url 'scope1'%}">Scope 1</a>
+                </li>
+                
+                <li class="nav-item">
+                <a class="nav-link" id="tab2"  href="{%url 'scope2'%}">Scope 2</a>
+                </li>
+                
+                <li class="nav-item">
+                <a class="nav-link active" id="tab3" href="{%url 'scope3'%}">Scope 3</a>
+                </li>
+                
+                <li class="nav-item">
+                <a class="nav-link " href="{%url 'dashboard'%}">Dashboard</a>
+                </li>
+
+            </ul>
+        <br>
+        {% block content %}
+        {% endblock %}        
+    </body>
+
+</html>
+
+
+    
+    
+
+    

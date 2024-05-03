@@ -1,0 +1,116 @@
+{% extends 'ghg_inventory/base_scope3.html' %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-2">
+            <!-- Left div with 1/10 width -->
+
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'commute' %}">Commute</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'water' %}">Water Supply</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'wastewater' %}">Waste Water</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'material' %}">Material Use</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link active "  href="{% url 'disposal' %}">Waste Disposal</a>
+
+                </li>         
+                
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'travel' %}">Business Travel</a>
+
+                </li>   
+    
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'flight' %}"> Flight </a>
+
+                </li>   
+    
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'accommodation' %}">Accommodation</a>
+
+                </li>   
+
+                <li class="nav-item">
+                    <a class="nav-link "  href="{% url 'freighting' %}">Freighting</a>
+
+                </li>   
+
+
+            </ul>
+
+        </div>
+        <div class="col">
+            <!-- Right div -->
+            <h4> Waste Disposal</h4> 
+            <p> Total amount of waste disposal per year in kg unit</p>
+
+
+            <form method="post">
+                {% csrf_token %}
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Year of Report</th>
+                        <th>Type of Waste</th>
+                        <th>Amount per year in kg</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td> {{ disposal.inventory_year }} </td>
+                        <td>{{ disposal.type}}</td>
+                        <td>{{ disposal.quantity}}</td>
+                        <td><button type="submit" class="btn btn-primary">Save</button></td>
+                        <td></td>
+                    </tr>
+                        {% for item in disposals %}
+                            <tr>
+                                <td>{{ item.inventory_year }}</td>
+                                <td>{{ item.type}}</td>
+                                <td>{{ item.quantity}}</td>
+                                {% comment %} delete button {% endcomment %}
+                                <td><a href="{% url 'disposal_delete' item.id %}">🗑️</a></td>
+                                <td><a href="{% url 'disposal_update' item.id %}">✏️</a></td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+
+
+            </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+
+        
+
+
+
+
+    
+    
+
+    
