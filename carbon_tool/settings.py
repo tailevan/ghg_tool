@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [".awsapprunner.com",
                  "localhost",
-                 "wssghg.fly.dev"
+                 "wssghg.fly.dev",
                  "127.0.0.1"]
 
 # Django-Plotly-Dash settings
