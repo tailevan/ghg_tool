@@ -95,18 +95,19 @@ WSGI_APPLICATION = 'carbon_tool.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-if "DATABASE_SECRET" in environ:
-    database_secret = environ.get("DATABASE_SECRET")
-    db_url = json.loads(database_secret)["DATABASE_URL"]
-    DATABASES = {"default": dj_database_url.parse(db_url)}
-else:
-    DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# if "DATABASE_SECRET" in environ:
+#     database_secret = environ.get("DATABASE_SECRET")
+#     db_url = json.loads(database_secret)["DATABASE_URL"]
+#     DATABASES = {"default": dj_database_url.parse(db_url)}
+# else:
+#     DATABASES = {"default": dj_database_url.parse("sqlite:///db.sqlite3")}
 
 
 
