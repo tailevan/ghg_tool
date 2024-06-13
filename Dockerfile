@@ -23,7 +23,8 @@ RUN set -ex && \
 COPY . /code
 
 ENV SECRET_KEY "Vta7ODn8QY9Wp1oZK8bzlYh8p5lU4QuVl9I4H6no16N2zmLQYi"
-RUN python manage.py migrate collectstatic --noinput
+RUN python manage.py migrate 
+RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
