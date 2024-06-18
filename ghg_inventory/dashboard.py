@@ -46,7 +46,7 @@ def create_dashboard(years, refrigerants_df, electricities_df, commutes_df, wate
         style={'width': '400px', 'height': '300px'}
     )
 
-    treemap_figure = dcc.Graph(
+    treemap_chart = dcc.Graph(
         id='treemap_figure',
         figure=go.Figure(
             go.Treemap(
@@ -124,7 +124,7 @@ def create_dashboard(years, refrigerants_df, electricities_df, commutes_df, wate
         # total_emission = filtered['emission'].sum()
         total_emission = refrigerant_emission + electricity_emission + commute_emission + water_emission + wastewater_emission + material_emission + disposal_emission + travel_emission + flight_emission + accommodation_emission + freighting_emission
         # Create gauge chart figure
-        gauge_chart_figure = go.Figure(
+        gauge_chart = go.Figure(
             go.Indicator(
                 mode="gauge+number",
                 value=total_emission,
@@ -141,7 +141,7 @@ def create_dashboard(years, refrigerants_df, electricities_df, commutes_df, wate
         parents = ["", "", "", "Scope 3", "Scope 3", "Scope 3", "Scope 3", "Scope 3", "Scope 3", "Scope 3", "Scope 3", "Scope 3"]
         values = [scope1_emission, scope2_emission, scope3_emission, commute_emission, water_emission, wastewater_emission, material_emission, disposal_emission, travel_emission, flight_emission, accommodation_emission, freighting_emission]
 
-        treemap_figure = go.Figure(
+        treemap_chart = go.Figure(
             go.Treemap(
                 labels=labels,
                 parents=parents,
@@ -157,7 +157,7 @@ def create_dashboard(years, refrigerants_df, electricities_df, commutes_df, wate
         
 
 
-        return gauge_chart_figure, treemap_figure
+        return gauge_chart, treemap_chart
 
 
 # Layout of the dashboard
@@ -168,6 +168,6 @@ def create_dashboard(years, refrigerants_df, electricities_df, commutes_df, wate
         ]),
         gauge_chart,
         group_bar_chart,
-        treemap_figure,
+        treemap_chart,
     ], style={'height': '100vh'})    
     return app

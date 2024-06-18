@@ -426,9 +426,7 @@ def dashboard(request):
     flight_emission = flights_df[flights_df['inventory_year__year'] == 2023]['emission'].sum()
     accommodation_emission = accommodations_df[accommodations_df['inventory_year__year'] == 2023]['emission'].sum()
     freighting_emission = freightings_df[freightings_df['inventory_year__year'] == 2023]['emission'].sum()
-    print(f"Commute:{commute_emission}")
-    print(f"Water:{water_emission}")
-    print(f"Wastewater:{wastewater_emission}")
+
 
     create_dashboard(years, refrigerants_df, electricities_df, commutes_df, waters_df, wastewaters_df, materials_df, disposals_df, travels_df, flights_df, accommodations_df, freightings_df, scope3_emission_df)
     return render(request, 'ghg_inventory/dashboard.html')
