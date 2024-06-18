@@ -29,14 +29,19 @@ SECRET_KEY = 'django-insecure--+votlu01w%4gs!9jc39@t3mkm%6w6e7+b%u$70iqapzsta*ph
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-# Cookies settings for https for localhost should change to false
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+
 
 ALLOWED_HOSTS = [".awsapprunner.com",
                  "localhost",
                  "wssghg.fly.dev",
                  "127.0.0.1"]
+
+# Cookies settings for https for localhost should change to false
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['wssghg.fly.dev']
+
+
 
 # Django-Plotly-Dash settings
 import os
