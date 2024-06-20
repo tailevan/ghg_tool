@@ -17,7 +17,7 @@ console_command = '/code/manage.py shell'
   DB_NAME = 'ghgdatabase'
   DB_USER = 'ghgdatabasewssuser'
   DB_PASSWORD = 'wss123456'
-  DB_HOST = 'https://wssdb.fly.dev'
+  DB_HOST = 'fdaa:9:6d96:0:1::2'
   DB_PORT = '5432'
 
 [http_service]
