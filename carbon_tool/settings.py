@@ -39,7 +39,7 @@ ALLOWED_HOSTS = [".awsapprunner.com",
 # Cookies settings for https for localhost should change to false
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = ['https://wssghg.fly.dev']
+CSRF_TRUSTED_ORIGINS = ['https://wss-pze.fly.dev']
 
 
 
