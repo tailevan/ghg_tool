@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for wssghg on 2024-06-13T14:58:32+07:00
+# fly.toml app configuration file generated for wss-pze on 2024-06-20T13:46:43+07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'wssghg'
+app = 'wss-pze'
 primary_region = 'hkg'
 console_command = '/code/manage.py shell'
 
