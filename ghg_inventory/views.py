@@ -6,7 +6,7 @@ from .forms import Inventory_Year_Form, Refrigerant_Form, Electricity_Form, Comm
 from .models import Inventory_Year, Refrigerant, Electricity, Commute, Water, Wastewater, Material, Disposal, Travel, Flight, Accommodation, Freighting
 from .models import Refrigerant_EF, Electricity_EF, Material_EF, Disposal_EF, Travel_EF, Flight_EF, Freighting_EF
 from .utils import calculate_emission_refrigerant, calculate_emission_electricity, calculate_emission_commute, calculate_emission_water, calculate_emission_wastewater, calculate_emission_material, calculate_emission_disposal, calculate_emission_travel, calculate_emission_flight, calculate_emission_accommodation, calculate_emission_freighting
-from .dashboard import create_dashboard
+# from .dashboard import create_dashboard
 import pandas as pd
 ############################################################################### 
 # Scope 1 - Refrigerant 
@@ -417,16 +417,8 @@ def dashboard(request):
     })
 
 
-    commute_emission = commutes_df[commutes_df['inventory_year__year'] == 2023]['emission'].sum()
-    water_emission = waters_df[waters_df['inventory_year__year'] == 2023]['emission'].sum()
-    wastewater_emission = wastewaters_df[wastewaters_df['inventory_year__year'] == 2023]['emission'].sum()
-    material_emission = materials_df[materials_df['inventory_year__year'] == 2023]['emission'].sum()
-    disposal_emission = disposals_df[disposals_df['inventory_year__year'] == 2023]['emission'].sum()
-    travel_emission = travels_df[travels_df['inventory_year__year'] == 2023]['emission'].sum()
-    flight_emission = flights_df[flights_df['inventory_year__year'] == 2023]['emission'].sum()
-    accommodation_emission = accommodations_df[accommodations_df['inventory_year__year'] == 2023]['emission'].sum()
-    freighting_emission = freightings_df[freightings_df['inventory_year__year'] == 2023]['emission'].sum()
 
 
-    create_dashboard(years, refrigerants_df, electricities_df, commutes_df, waters_df, wastewaters_df, materials_df, disposals_df, travels_df, flights_df, accommodations_df, freightings_df, scope3_emission_df)
+
+    # create_dashboard(years, refrigerants_df, electricities_df, commutes_df, waters_df, wastewaters_df, materials_df, disposals_df, travels_df, flights_df, accommodations_df, freightings_df, scope3_emission_df)
     return render(request, 'ghg_inventory/dashboard.html')

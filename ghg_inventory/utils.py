@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+
 def calculate_emission_refrigerant(quantity, capcity, refrigerant_ef):
     emission = Decimal(quantity) * Decimal(capcity) * (Decimal(0.06) + Decimal(0.16) * Decimal(refrigerant_ef)*Decimal(1e-3))
     return emission
@@ -44,3 +45,5 @@ def calculate_emission_accommodation(night):
 def calculate_emission_freighting(distance, freighting_ef):
     emission = Decimal(distance) * Decimal(freighting_ef)
     return emission
+
+
