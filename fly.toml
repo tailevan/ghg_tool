@@ -17,7 +17,7 @@ console_command = '/code/manage.py shell'
   DB_NAME = 'ghgdatabase'
   DB_USER = 'ghgdatabasewssuser'
   DB_PASSWORD = 'wss123456'
-  DB_HOST = ''
+  DB_HOST = 'db'
   DB_PORT = '5432'
 
 [http_service]
