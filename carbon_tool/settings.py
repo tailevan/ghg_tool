@@ -33,7 +33,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [".awsapprunner.com",
                  "localhost",
-                 "wssghg.fly.dev",
+                 "wss-pze.fly.dev",
                  "127.0.0.1"]
 
 # Cookies settings for https for localhost should change to false
