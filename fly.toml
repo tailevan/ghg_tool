@@ -17,8 +17,8 @@ console_command = '/code/manage.py shell'
   PORT = '8000'
   DB_NAME = 'wss_pze'
   DB_USER = 'postgres'
-  DB_PASSWORD = 'DoxHFpJ7lyWVqXh'
-  DB_HOST = ''
+  DB_PASSWORD = 'eKrQnNL8KUOvYGZ'
+  DB_HOST = 'wssdb.internal'
   DB_PORT = '5433'
 
 [http_service]
