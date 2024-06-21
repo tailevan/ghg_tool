@@ -14,9 +14,9 @@ console_command = '/code/manage.py shell'
 
 [env]
   PORT = '8000'
-  DB_NAME = 'ghgdatabase'
-  DB_USER = 'ghgdatabasewssuser'
-  DB_PASSWORD = 'wss123456'
+  DB_NAME = 'wssdb'
+  DB_USER = 'postgres'
+  DB_PASSWORD = 'DoxHFpJ7lyWVqXh'
   DB_HOST = 'fdaa:9:6d96:0:1::2'
   DB_PORT = '5432'
 
