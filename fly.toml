@@ -17,7 +17,7 @@ console_command = '/code/manage.py shell'
   DB_NAME = 'wssdb'
   DB_USER = 'postgres'
   DB_PASSWORD = 'DoxHFpJ7lyWVqXh'
-  DB_HOST = 'wssdb.flycast'
+  DB_HOST = 'wssdb.internal'
   DB_PORT = '5432'
 
 [http_service]
